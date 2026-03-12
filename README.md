@@ -104,6 +104,37 @@ For development with auto-restart:
 npm run dev
 ```
 
+### 9. Deploy to VPS (Optional)
+
+To run the bot 24/7 on a VPS/server:
+
+**Using PM2 (Recommended):**
+
+```bash
+# Install PM2 globally
+npm install -g pm2
+
+# Start the bot with PM2
+pm2 start src/index.js --name fasting-bot
+
+# Save PM2 config to auto-start on boot
+pm2 save
+pm2 startup
+```
+
+**PM2 Commands:**
+```bash
+pm2 status              # Check if bot is running
+pm2 logs fasting-bot    # View bot logs
+pm2 restart fasting-bot # Restart the bot
+pm2 stop fasting-bot    # Stop the bot
+```
+
+**Alternative (simple, no auto-restart):**
+```bash
+nohup npm start > bot.log 2>&1 &
+```
+
 ## 📱 Usage
 
 Once the bot is running, open Telegram and start chatting with your bot:
